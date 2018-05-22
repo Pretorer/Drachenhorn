@@ -1,3 +1,3 @@
-Dies sind die kompilierten Dateien des Programms [Drachenhorn](https://github.com/lightlikeD/DSACharacterSheet/tree/master)
+Dies sind die kompilierten Dateien des Programms [Drachenhorn](https://github.com/lightlike/Drachenhorn/tree/master)
 
-## [Download](https://raw.githubusercontent.com/lightlikeD/DSACharacterSheet/publish/setup.exe)
+## [Download](https://raw.githubusercontent.com/lightlike/Drachenhorn/publish/setup.exe)
