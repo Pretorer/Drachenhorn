@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="DSACharacterSheet.Desktop.exe" version="0.0.8.32" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Drachenhorn.Desktop.exe" version="0.0.8.33" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Images\Common\Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DSACharacterSheet.Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-    <commandLine file="DSACharacterSheet.Desktop.exe" parameters="" />
+    <assemblyIdentity name="Drachenhorn.Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Drachenhorn.Desktop.exe" parameters="" />
   </entryPoint>
   <trustInfo>
     <security>
@@ -93,74 +93,74 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DSACharacterSheet.Core.dll" size="39936">
-      <assemblyIdentity name="DSACharacterSheet.Core" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Drachenhorn.Core.dll" size="39936">
+      <assemblyIdentity name="Drachenhorn.Core" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>w5snmrj6OJPE3kJFO7osFmohOyHIaQM5ScwiwgFO0qw=</dsig:DigestValue>
+        <dsig:DigestValue>/Mc12eSBx5eE49WrnL7z2BNvxiKStgbNvXrF4AoI4yo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de-DE\DSACharacterSheet.Core.resources.dll" size="16384">
-      <assemblyIdentity name="DSACharacterSheet.Core.resources" version="1.0.0.0" language="de-DE" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de-DE\Drachenhorn.Core.resources.dll" size="15872">
+      <assemblyIdentity name="Drachenhorn.Core.resources" version="1.0.0.0" language="de-DE" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y08Vwg36vPy+an0VLC3qVEZkfeJnTogudl4i68LVDUw=</dsig:DigestValue>
+        <dsig:DigestValue>R7SuvRXeLNhd+RLiahSSSMRxiJb9SXMli5Uq62vJcao=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en\DSACharacterSheet.Core.resources.dll" size="15872">
-      <assemblyIdentity name="DSACharacterSheet.Core.resources" version="1.0.0.0" language="en" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="en\Drachenhorn.Core.resources.dll" size="15872">
+      <assemblyIdentity name="Drachenhorn.Core.resources" version="1.0.0.0" language="en" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>S7pgqAKqA6V3qbVzH3W681KNIzATKLBW4bywDHKbLKE=</dsig:DigestValue>
+        <dsig:DigestValue>ECZBdGywKN01len3csSELZ31VUzpvhQ4iU28t7qdqvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="nds-DE\DSACharacterSheet.Core.resources.dll" size="6656">
-      <assemblyIdentity name="DSACharacterSheet.Core.resources" version="1.0.0.0" language="nds-DE" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="nds-DE\Drachenhorn.Core.resources.dll" size="6656">
+      <assemblyIdentity name="Drachenhorn.Core.resources" version="1.0.0.0" language="nds-DE" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MvRLtn65P5q7SdOHmtcEOOwwS/xWSX7WHVEBL3LZP2U=</dsig:DigestValue>
+        <dsig:DigestValue>RW4zUt9RRNOqO0NXxciHIL1L1m2KTwIwyBvbQxiT56Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DSACharacterSheet.Desktop.exe" size="762368">
-      <assemblyIdentity name="DSACharacterSheet.Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Drachenhorn.Desktop.exe" size="758272">
+      <assemblyIdentity name="Drachenhorn.Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OF9+iiNjLNfBvF1K3Tr5B19NnBjHPJ0GKPxLOst2uCk=</dsig:DigestValue>
+        <dsig:DigestValue>rTPps4Z70DCPYTKv+k19F1EY/+VqwIX/hpEIvquvOvM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DSACharacterSheet.Xml.dll" size="45568">
-      <assemblyIdentity name="DSACharacterSheet.Xml" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Drachenhorn.Xml.dll" size="45568">
+      <assemblyIdentity name="Drachenhorn.Xml" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CQx1N4yYEAWEYsEg9h83qyaOzexJbUQ7LJ+0AIbn4XQ=</dsig:DigestValue>
+        <dsig:DigestValue>wnGNFxrkusTiawMq2SgYQE0GpARSeeF7x7LEkl6LgtQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1517,7 +1517,7 @@
       <dsig:DigestValue>3NOrOiaEMvLCOm4C4+dsqnyY/rPCfV3ArPOz05ohgZw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DSACharacterSheet.Desktop.exe.config" size="19134">
+  <file name="Drachenhorn.Desktop.exe.config" size="19134">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1553,13 +1553,13 @@
       <dsig:DigestValue>eYga3FM9vz/alfX4zh0OSJemHK+mZDsx1Zjw53D3iio=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="log4net.config" size="1223">
+  <file name="log4net.config" size="1217">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>OKyHWJUHxjCRjHnqTayD0Out/wWZDfgVI9kdUeF9MJg=</dsig:DigestValue>
+      <dsig:DigestValue>MxVjt8suTk6/5UBWdS3gxBGq9dr+djXx3MZEJ1a/0bs=</dsig:DigestValue>
     </hash>
   </file>
   <fileAssociation extension=".dsac" description="Drachenhorn File" progid="DSA Sheet" defaultIcon="Images\Common\SaveFileIcon.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />
