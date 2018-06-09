@@ -17,9 +17,27 @@ namespace Drachenhorn.Xml.Template
     /// </summary>
     /// <seealso cref="Drachenhorn.Xml.ChildChangedBase" />
     [Serializable]
-    public class DSATemplate : ChildChangedBase
+    public class DSATemplate : ChildChangedBase, ISavable
     {
         #region Properties
+
+        [XmlIgnore]
+        private double _version;
+        /// <summary>
+        /// Version of the Template
+        /// </summary>
+        [XmlAttribute("Version")]
+        public double Version
+        {
+            get { return _version; }
+            set
+            {
+                if (Math.Abs(_version - value) < Double.Epsilon)
+                    return;
+                _version = value;
+                OnPropertyChanged();
+            }
+        }
 
         [XmlIgnore]
         private APTable _apTable = new APTable();
@@ -154,6 +172,25 @@ namespace Drachenhorn.Xml.Template
 
         [XmlIgnore]
         private string _fileName;
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        [XmlIgnore]
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                if (_fileName == value)
+                    return;
+                _fileName = value;
+                OnPropertyChanged();
+                OnPropertyChanged("FilePath");
+            }
+        }
 
         /// <summary>
         /// Gets the Current Template FilePath.
@@ -166,13 +203,12 @@ namespace Drachenhorn.Xml.Template
         {
             get
             {
-                return Path.Combine(BaseDirectory, _fileName + Extension);
+                return Path.Combine(BaseDirectory, FileName + Extension);
             }
             private set
             {
                 if (value.StartsWith(BaseDirectory))
-                    _fileName = value.Replace(BaseDirectory, "").Replace("\\", "").Replace(Extension, "");
-                OnPropertyChanged();
+                    FileName = value.Replace(BaseDirectory, "").Replace("\\", "").Replace(Extension, "");
             }
         }
 
@@ -197,11 +233,22 @@ namespace Drachenhorn.Xml.Template
         }
 
         /// <summary>
-        /// Saves the current CharacterSheet to a selected path.
+        /// Saves the current Template to a selected path.
         /// </summary>
+        /// <returns><c>True</c> if successful, otherwise <c>False</c></returns>
         public bool Save()
         {
-            using (var stream = new StreamWriter(FilePath))
+            return Save(FilePath);
+        }
+
+        /// <summary>
+        /// Saves the current Template to a given path.
+        /// </summary>
+        /// <param name="path">Path to save to.</param>
+        /// <returns><c>True</c> if successful, otherwise <c>False</c>.</returns>
+        public bool Save(string path)
+        {
+            using (var stream = new StreamWriter(path))
             {
                 var serializer = new XmlSerializer(typeof(DSATemplate));
                 serializer.Serialize(stream, this);
@@ -209,6 +256,12 @@ namespace Drachenhorn.Xml.Template
             }
 
             return true;
+        }
+
+        /// <inheritdoc />
+        void ISavable.Save(string path)
+        {
+            Save(path);
         }
 
         #endregion Save/Load

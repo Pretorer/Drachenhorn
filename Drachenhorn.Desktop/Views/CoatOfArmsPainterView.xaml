@@ -1,94 +1,123 @@
-﻿<Window x:Class="Drachenhorn.Desktop.Views.CoatOfArmsPainterView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:lang="clr-namespace:Drachenhorn.Desktop.UI.Lang"
-        mc:Ignorable="d"
-        Style="{StaticResource {x:Type Window}}"
-        ResizeMode="CanMinimize"
-        Title="{lang:Translate CharacterSheet.CoatOfArms}" SizeToContent="WidthAndHeight">
+﻿<fluent:RibbonWindow x:Class="Drachenhorn.Desktop.Views.CoatOfArmsPainterView"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                     xmlns:lang="clr-namespace:Drachenhorn.Desktop.UI.Lang"
+                     xmlns:fluent="urn:fluent-ribbon"
+                     mc:Ignorable="d" ResizeMode="CanMinimize" IsIconVisible="False"
+                     Title="{lang:Translate CharacterSheet.CoatOfArms}" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary Source="../UI/Themes/WhiteTheme.xaml"/>
+    </Window.Resources>
+
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+        <fluent:Ribbon DockPanel.Dock="Top" IsQuickAccessToolBarVisible="False">
+            <fluent:RibbonTabItem Header="{lang:Translate UI.Paint}">
+                <fluent:RibbonGroupBox Header="{lang:Translate UI.Actions}">
+                    <fluent:Button LargeIcon="{StaticResource UndoIcon}"
+                                   KeyTip="Z"
+                                   Header="{lang:Translate UI.Undo}"
+                                   Click="UndoButton_Click"/>
+                    <fluent:Button LargeIcon="{StaticResource RedoIcon}"
+                                   KeyTip="Y"
+                                   Header="{lang:Translate UI.Redo}"
+                                   Click="RedoButton_Click"/>
+                    <fluent:Button LargeIcon="{StaticResource ClearIcon}"
+                                   KeyTip="C"
+                                   Header="{lang:Translate Painter.Clear}"
+                                   Click="ClearButton_Click"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="{lang:Translate Painter.BrushType}">
+                    <fluent:ToggleButton LargeIcon="{StaticResource PencilIcon}"
+                                         KeyTip="P"
+                                         Header="{lang:Translate Painter.Pencil}"
+                                         GroupName="BrushType"
+                                         IsChecked="True" Checked="BrushType_Checked_1"/>
+                    <fluent:ToggleButton LargeIcon="{StaticResource EraserIcon}"
+                                         KeyTip="E"
+                                         Header="{lang:Translate Painter.Eraser}"
+                                         GroupName="BrushType"
+                                         Checked="BrushType_Checked_2"/>
+                    <fluent:ToggleButton LargeIcon="{StaticResource SelectIcon}"
+                                         KeyTip="S"
+                                         Header="{lang:Translate Painter.Select}"
+                                         GroupName="BrushType"
+                                         Checked="BrushType_Checked_3"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="{lang:Translate Painter.Color}">
+                    <xctk:ColorPicker Name="ClrPcker_Brush" AvailableColorsSortingMode="HueSaturationBrightness"
+                                      DisplayColorAndName="True"
+                                      AdvancedButtonHeader="{lang:Translate Colors.Advanced.Header}"
+                                      StandardButtonHeader="{lang:Translate Colors.Standard.Header}"
+                                      StandardColorsHeader="{lang:Translate Colors.Standard}"
+                                      RecentColorsHeader="{lang:Translate Colors.Recent.Header}"
+                                      ShowRecentColors="True"
+                                      UsingAlphaChannel="True"
+                                      Width="200" Margin="2"
+                                      SelectedColor="{Binding DefaultDrawingAttributes.Color, ElementName=Canvas}"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="{lang:Translate Painter.BrushTip}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-            <RadioButton GroupName="BrushType" Width="20" Height="20" Margin="2"
-                         IsChecked="True" Checked="BrushType_Checked_1"
-                         ToolTip="{lang:Translate Painter.Pencil}" Padding="0">
-                <Image Source="{StaticResource PencilIcon}" />
-            </RadioButton>
-            <RadioButton GroupName="BrushType" Width="20" Height="20" Margin="2"
-                         Checked="BrushType_Checked_2"
-                         ToolTip="{lang:Translate Painter.Eraser}" Padding="0">
-                <Image Source="{StaticResource EraserIcon}" />
-            </RadioButton>
-            <RadioButton GroupName="BrushType" Width="20" Height="20" Margin="2"
-                         Checked="BrushType_Checked_3"
-                         ToolTip="{lang:Translate Painter.Select}" Padding="0">
-                <Image Source="{StaticResource SelectIcon}"/>
-            </RadioButton>
+                        <Image Source="{StaticResource WidthIcon}" Width="20"/>
 
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Slider Value="{Binding DefaultDrawingAttributes.Width, ElementName=Canvas}" Minimum="0.1" Maximum="20"
+                                PreviewMouseUp="WidthSlider_OnPreviewMouseUp"
+                                Grid.Column="1" VerticalAlignment="Center" Width="150"
+                                TickFrequency="0.1" IsSnapToTickEnabled="True"/>
 
-            <Button Width="20" Height="20" Margin="2" Click="UndoButton_Click"
-                    ToolTip="{lang:Translate UI.Undo}">
-                <Image Source="{StaticResource UndoIcon}"/>
-            </Button>
-            <Button Width="20" Height="20" Margin="2" Click="RedoButton_Click"
-                    ToolTip="{lang:Translate UI.Redo}">
-                <Image Source="{StaticResource RedoIcon}"/>
-            </Button>
-            <Button Width="20" Height="20" Margin="2" Click="ClearButton_Click"
-                    ToolTip="{lang:Translate Painter.Clear}">
-                <Image Source="{StaticResource ClearIcon}"/>
-            </Button>
+                        <Border Grid.Column="2" Width="30" Margin="0 0 5 0">
+                            <TextBlock Text="{Binding DefaultDrawingAttributes.Width, ElementName=Canvas, StringFormat={}0.0}"
+                                       HorizontalAlignment="Right"/>
+                        </Border>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Image Source="{StaticResource HeightIcon}" Width="20"/>
 
-            <RadioButton GroupName="BrushStrength" Width="20" Height="20" Margin="2"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                         IsChecked="True" Checked="BrushStrength_Checked_1" Padding="0">
-                <Image Source="{StaticResource BrushIcon}" Width="10"/>
-            </RadioButton>
-            <RadioButton GroupName="BrushStrength" Width="20" Height="20" Margin="2"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                         Checked="BrushStrength_Checked_2" Padding="0">
-                <Image Source="{StaticResource BrushIcon}" Width="15" />
-            </RadioButton>
-            <RadioButton GroupName="BrushStrength" Width="20" Height="20" Margin="2"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                         Checked="BrushStrength_Checked_3" Padding="0">
-                <Image Source="{StaticResource BrushIcon}" Width="20" />
-            </RadioButton>
-            <RadioButton GroupName="BrushStrength" Width="20" Height="20" Margin="2"
-                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                         Checked="BrushStrength_Checked_4" Padding="0">
-                <Image Source="{StaticResource BrushIcon}" Width="30" />
-            </RadioButton>
+                        <Slider Value="{Binding DefaultDrawingAttributes.Height, ElementName=Canvas}" Minimum="0.1" Maximum="20"
+                                PreviewMouseUp="HeightSlider_OnPreviewMouseUp"
+                                Grid.Column="1" VerticalAlignment="Center" Width="150"
+                                TickFrequency="0.1" IsSnapToTickEnabled="True"/>
 
-            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-
-            <xctk:ColorPicker Name="ClrPcker_Brush" AvailableColorsSortingMode="HueSaturationBrightness"
-                              DisplayColorAndName="True"
-                              AdvancedButtonHeader="{lang:Translate Colors.Advanced.Header}"
-                              StandardButtonHeader="{lang:Translate Colors.Standard.Header}"
-                              StandardColorsHeader="{lang:Translate Colors.Standard}"
-                              RecentColorsHeader="{lang:Translate Colors.Recent.Header}"
-                              ShowRecentColors="True"
-                              UsingAlphaChannel="True"
-                              SelectedColorChanged="ClrPcker_Brush_SelectedColorChanged"
-                              Width="200" Margin="2" />
-        </WrapPanel>
+                        <Border Grid.Column="2" Width="30" Margin="0 0 5 0">
+                            <TextBlock Text="{Binding DefaultDrawingAttributes.Height, ElementName=Canvas, StringFormat={}0.0}"
+                                       HorizontalAlignment="Right"/>
+                        </Border>
+                    </Grid>
+                    
+                    <fluent:ToggleButton Name="LinkSizeToggleButton"
+                                         Size="Small" Icon="{StaticResource LinkIcon}"
+                                         IsChecked="True" Checked="LinkSizeToggleButton_OnChecked" Margin="5"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="{lang:Translate UI.Misc}">
+                    <fluent:CheckBox Header="{lang:Translate Painter.FitToCurve}"
+                                     IsChecked="{Binding DefaultDrawingAttributes.FitToCurve, ElementName=Canvas}"
+                                     Margin="5"/>
+                    <fluent:CheckBox Header="{lang:Translate Painter.IgnorePressure}"
+                                     IsChecked="{Binding DefaultDrawingAttributes.IgnorePressure, ElementName=Canvas}"
+                                     Margin="5"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
 
         <Border Name="InkBorder" Background="GhostWhite" BorderBrush="{StaticResource BorderBrush}"
-                BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Width="910" Height="610">
-            <InkCanvas Name="Canvas" Strokes="{Binding Strokes}" ClipToBounds="True"
-                       Height="{Binding ElementName=InkBorder, Path=ActualHeight}"
-                       Width="{Binding ElementName=InkBorder, Path=ActualWidth}"
-                       VerticalAlignment="Top" HorizontalAlignment="Left">
+                BorderThickness="1" MinHeight="600">
+            <InkCanvas Name="Canvas" Strokes="{Binding Strokes}" ClipToBounds="True">
                 <InkCanvas.DefaultDrawingAttributes>
-                    <DrawingAttributes Height=".7" Width=".7" />
+                    <DrawingAttributes IgnorePressure="True" FitToCurve="True" Height="5" Width="5" />
                 </InkCanvas.DefaultDrawingAttributes>
                 <InkCanvas.RenderTransform>
                     <ScaleTransform x:Name="InkCanvasScaleTransform" />
@@ -96,4 +125,4 @@
             </InkCanvas>
         </Border>
     </DockPanel>
-</Window>
+</fluent:RibbonWindow>

@@ -601,16 +601,10 @@
     <value>Formula</value>
   </data>
   <data name="PNG.FileType.Name" xml:space="preserve">
-    <value>Image-Format (.png)</value>
-  </data>
-  <data name="PNG.SaveDialog.Title" xml:space="preserve">
-    <value>Save image</value>
+    <value>Image-Format</value>
   </data>
   <data name="CoatOfArms.DefaultFileName" xml:space="preserve">
     <value>Coat of Arms</value>
-  </data>
-  <data name="PNG.OpenDialog.Title" xml:space="preserve">
-    <value>Open image</value>
   </data>
   <data name="UI.Installed" xml:space="preserve">
     <value>Installed</value>
@@ -618,8 +612,8 @@
   <data name="UI.Online" xml:space="preserve">
     <value>Online</value>
   </data>
-  <data name="UI.Template" xml:space="preserve">
-    <value>Vorlagen</value>
+  <data name="UI.Templates" xml:space="preserve">
+    <value>Templates</value>
   </data>
   <data name="UI.AllFiles" xml:space="preserve">
     <value>All Files</value>
@@ -719,5 +713,41 @@
   </data>
   <data name="APColumn.Values" xml:space="preserve">
     <value>Values</value>
+  </data>
+  <data name="UI.Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="UI.SaveLoad" xml:space="preserve">
+    <value>Save/Load</value>
+  </data>
+  <data name="UI.ShowTemplates" xml:space="preserve">
+    <value>Show templates</value>
+  </data>
+  <data name="UI.Paint" xml:space="preserve">
+    <value>Paint</value>
+  </data>
+  <data name="Painter.BrushType" xml:space="preserve">
+    <value>Brush-Type</value>
+  </data>
+  <data name="UI.Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Painter.Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Painter.BrushTip" xml:space="preserve">
+    <value>Brush-Tip</value>
+  </data>
+  <data name="UI.Misc" xml:space="preserve">
+    <value>Miscellaneous</value>
+  </data>
+  <data name="Painter.FitToCurve" xml:space="preserve">
+    <value>Smooth curves</value>
+  </data>
+  <data name="Painter.IgnorePressure" xml:space="preserve">
+    <value>Ignore pressure</value>
+  </data>
+  <data name="CoatOfArms.New.AreYouSure" xml:space="preserve">
+    <value>Adding a new Coat of Arms will remove the old one.\n Do you want to do that?</value>
   </data>
 </root>
